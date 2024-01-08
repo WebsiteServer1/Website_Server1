@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daftar Service</title>
+
+  <style>
+    body {
+      min-height: 100vh;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-control {
+      width: 500px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px; /* Tambahkan properti ini untuk membuat sudut dibulatkan */
+    }
+
+    select, textarea {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 10px; /* Tambahkan properti ini untuk membuat sudut dibulatkan */
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .nav-link {
+      margin-left: 20px;
+      font-weight: bold;
+      color: rgb(0, 0, 0);
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #08e6f4;
+    }
+
+    .nav-link:active {
+      color: #08e6f4;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body style=" background-image: linear-gradient(-1deg,#210966 0,#08e6f4 100%); font-family: Arial, Helvetica, sans-serif;">
+  <header style=" width: 100%; display: center;">
+    <h1 style="display: flex; justify-content: center; color: black;">YOLA SERVICE HP</h1>
+    
+    <nav style="display: flex; justify-content: center; background-color: rgb(255, 255, 255); padding: 15px;">
+      <a href="utama.html" class="nav-link" style="margin-left: 20px;">Home</a>
+      <a href="service.html" class="nav-link" style="margin-left: 20px;">Service</a>
+      <a href="konsultasi.html" class="nav-link" style="margin-left: 20px;">Jasa Konsultasi</a>
+      <a href="contact.html" class="nav-link" style="margin-left: 20px;">Contact</a>
+    </nav>
+  </header>
+
+  <form action="https://api.web3forms.com/submit" method="POST" style="margin-left: 40px;">
+    <input type="hidden" name="access_key" value="db232b6c-838c-4e0b-a520-a20984915c20">
+
+    <div class="form-group" style="margin-top: 30px; color: white;">
+      <label for="nama">Nama Pelanggan :</label>
+      <input type="text" class="form-control" id="nama" name="nama" required>
+    </div>
+
+    <div class="form-group" style="margin-top: 30px; color: white;">
+        <label for="email">Alamat Email :</label>
+        <input type="text" class="form-control" id="email" name="email" required>
+      </div>
+
+    <div class="form-group" style="margin-top: 30px; color: white;">
+      <label for="no_telpon">No. Telepon :</label>
+      <input type="text" class="form-control" id="no_telpon" name="no_telpon" required>
+    </div>
+
+    <div class="form-group" style="margin-top: 30px; color: white;">
+        <label for="merek">Merek dan Model HP :</label>
+        <input type="text" class="form-control" id="merek" name="merek" required>
+      </div>
+
+    <div class="form-group" style="margin-top: 30px; color: white;">
+      <label for="jenis_kerusakan">Jenis Kerusakan :</label>
+      <select class="form-control" id="jenis_kerusakan" name="jenis_kerusakan" required>
+        <option value="">Pilih Jenis Kerusakan</option>
+        <option value="Layar/LCD">Layar/LCD</option>
+        <option value="Baterai">Baterai</option>
+        <option value="Port USB">Port_USB</option>
+        <option value="Speaker">Speaker</option>
+        <option value="Microphone">Microphone</option>
+        <option value="Port Audio">Port_Audio</option>
+        <option value="Tombol">Tombol_Volume</option>
+        <option value="Tombol">Tombol_Power</option>
+        <option value="Reset Pabrik">Reset Pabrik</option>
+      </select>
+    </div>
+
+    <div class="form-group" style="margin-top: 30px; color: white;">
+      <label for="note">Jenis Kerusakan (Jika Tidak Ada di Pilihan) :</label>
+      <textarea class="form-control" id="note" name="note"></textarea>
+    </div>
+
+    <div class="form-group" style="margin-top: 30px; color: white;">
+      <label for="deskripsi_kerusakan">Deskripsi Kerusakan :</label>
+      <textarea class="form-control" id="deskripsi_kerusakan" name="deskripsi_kerusakan" required></textarea>
+    </div>
+
+    <div class="form-group" style="margin-top: 30px; color: white;">
+        <label for="foto_kerusakan">Foto atau Video Kerusakan (Opsional) :</label>
+        <input type="file" class="form-control" id="foto_kerusakan" name="foto_kerusakan" multiple>
+      </div>
+
+      <a href="next.html" style="text-decoration: none;">
+        <div style="display: flex; justify-content: center; margin-top: 0; margin-bottom: 0;">
+          <button class="button" onclick="sendQueueNumberAndRedirect()">Kirim</button>
+        </div>
+      </a>
+
+      <script src="https://web3forms.com/client/script.js" async defer></script>
+
+    <script>
+        const sendQueueNumberAndRedirect = () => {
+            // Generate queue number
+            const queueNumber = generateQueueNumber();
+          
+            // Get form data
+            const nama = document.querySelector('#nama').value;
+            const email = document.querySelector('#email').value;
+            const noTelepon = document.querySelector('#noTelepon').value;
+            const merek = document.querySelector('#merek').value;
+            const jenisKerusakan = document.querySelector('#jenisKerusakan').value;
+            const deskripsiKerusakan = document.querySelector('#deskripsiKerusakan').value;
+            const jenisPengiriman = document.querySelector('input[name="jenis_pengiriman"]:checked').value;
+            const alamatRumahPelanggan = document.querySelector('#alamat_rumah_pelanggan').value || '';
+          
+            // Send queue number, customer data, and shipping method to WhatsApp
+            const message = `
+              Nomor antrian Anda adalah ${queueNumber}
+          
+              Nama: ${nama}
+              Email: ${email}
+              No. Telepon: ${noTelepon}
+              Merek: ${merek}
+              Jenis Kerusakan: ${jenisKerusakan}
+              Deskripsi Kerusakan: ${deskripsiKerusakan}
+              Jenis Pengiriman: ${jenisPengiriman}
+              Alamat Rumah Pelanggan: ${alamatRumahPelanggan}
+            `;
+          
+            // Use WhatsApp API link to send message
+            const whatsappLink = `https://api.whatsapp.com/send/?phone=6281217850128&text=${encodeURIComponent(message)}&type=phone_number&app_absent=0`;
+          
+            // Redirect to WhatsApp API link
+            window.location.href = whatsappLink;
+          };
+    </script>
+
+  </form>
+</body>
+</html>

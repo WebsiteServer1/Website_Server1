@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <style>
+    html {
+      overflow: hidden;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .login-container {
+      background-color: #fff;
+      padding: 19px;
+      height: 100%;
+      border-radius: 0px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 730px;
+    }
+
+    .login-container h2 {
+      text-align: center;
+      color: #000000;
+      margin-top: 120px;
+    }
+
+    .login-form {
+      margin-top: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    .form-group input {
+      width: 450px;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #A2A2A2;
+      border-radius: 10px;
+      background-color: #A2A2A2;
+      height: 50px;
+      font-size: large;
+      font-weight: bold;
+    }
+
+    .form-group button,
+    .form-group .google-login-button {
+      background-color: #4C88FD;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 450px;
+      height: 50px;
+      font-size: large;
+      font-weight: bold;
+    }
+
+    .form-group .google-login-button {
+      background-color: #4285F4;
+    }
+
+    .form-group .remember-me {
+      display: flex;
+      align-items: center;
+      justify-content: left; 
+      margin-right: 140px;
+      font-size: large;
+      font-weight: bold;
+    }
+
+    .form-group .remember-me input {
+      margin-right: 5px;
+      height: 18px;
+      width: 18px;
+    }
+
+    .welcome-message {
+      text-align: center;
+      margin-top: 270px;
+      margin-left: 170px;
+      font-weight: bold;
+      font-size: 30px;
+    }
+  </style>
+</head>
+
+<body style="background-image: linear-gradient(-1deg, #210966 0, #08e6f4 100%); font-family: Arial, Helvetica, sans-serif;">
+
+  <div class="container">
+    <div class="login-container">
+      <h2 style="font-size: 35px;">LOGIN</h2>
+      <form class="login-form" action="#" method="post">
+        <div class="form-group">
+          <input type="text" id="username" name="username" placeholder="Email" required>
+        </div>
+
+        <div class="form-group">
+          <input type="password" id="password" name="password" placeholder="••••••••" required>
+        </div>
+
+        <div class="form-group remember-me">
+          <label for="rememberMe" style="font-weight: bold; color: rgb(0, 0, 0);">Remember Me</label>
+          <input type="checkbox" id="rememberMe" name="rememberMe" style="height: 20px;">
+        </div>
+
+        <div class="form-group">
+          <button type="submit">LOGIN</button>
+        </div>
+
+        <div class="form-group">
+          <p style="font-weight: bold; color: rgb(0, 0, 0);">Or login with</p>
+          <button class="google-login-button" type="button">Login with Google</button>
+        </div>
+
+        <div style="text-align: center;">
+          <a href="signup.html" style="color:rgb(0, 0, 0); font-weight: bold; color: #666666; text-decoration: none;">Sign Up</a>
+        </div>
+      </form>
+    </div>
+    <div class="welcome-message">
+      <p style="color: #ffffff; margin-bottom: 5px;">Welcome To</p>
+      <h2 style="color: #000000; margin-top: 1px;">YOLA SERVICE HP</h2>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Get the form and attach an event listener
+      const loginForm = document.querySelector(".login-form");
+
+      loginForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Get the entered username and password
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        // Hardcoded login credentials
+        const hardcodedUsername = "admin123@gmail.com";
+        const hardcodedPassword = "admin123";
+
+        // Check if the entered credentials are correct
+        if (username === hardcodedUsername && password === hardcodedPassword) {
+          // Redirect to "utama.html" if login is successful
+          window.location.href = "utama.html";
+        } else {
+          // Display an error message if login fails
+          alert("Invalid username or password. Please try again.");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

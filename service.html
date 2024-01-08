@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Service</title>
+
+  <style>
+    html {
+      overflow: hidden;
+    }
+
+    body {
+      background-image: linear-gradient(-1deg, #210966 0, #08e6f4 100%);
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    a.button {
+        display: block; /* Make the button a block element */
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .nav-link {
+      margin-left: 20px;
+      font-weight: bold;
+      color: rgb(0, 0, 0);
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #08e6f4;
+    }
+
+    .nav-link:active {
+      color: #08e6f4;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Additional style for active link */
+    #konsultasiButton:active {
+      color: #08e6f4;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    main img {
+      max-width: 300px; /* Set max-width to 33% to fit three images in one row */
+      height: 300px;
+      float: right; /* Float the images to the right */
+      margin: 10px; /* Add margin for spacing */
+    }
+
+    main {
+      color: white;
+      margin-left: 47px;
+    }
+
+    table {
+      margin-top: 20px; /* Add margin to separate the table from the text */
+    }
+  </style>
+</head>
+<body style="background-image: linear-gradient(-1deg, #210966 0, #08e6f4 100%); font-family: Arial, Helvetica, sans-serif;">
+
+  <header style=" width: 100%; display: center;">
+    <h1 style="display: flex; justify-content: center; color: rgb(0, 0, 0);">YOLA SERVICE HP</h1>
+    
+    <nav style="display: flex; justify-content: center; background-color: rgb(255, 255, 255); padding: 15px; margin-left: 8px; margin-right: 8px;">
+      <a href="utama.html" class="nav-link" style="margin-left: 20px;">Home</a>
+      <a href="#" id="serviceButton" class="nav-link" style="margin-left: 20px;">Service</a>
+      <a href="konsultasi.html" id="konsultasiButton" class="nav-link" style="margin-left: 20px;">Jasa Konsultasi</a>
+      <a href="contact.html" class="nav-link" style="margin-left: 20px;">Contact</a>
+    </nav>
+  </header>
+      
+  <header style="color: white;">
+    <h1 style="margin-left: 47px;">Daftar Layanan Service</h1>
+  </header>
+
+  <main>
+    <img src="lcd.jpg" alt="LCD Image">
+    <img src="baterai.jpg" alt="Baterai Image">
+    <img src="usb.jpg" alt="USB Image">
+
+    <h2>Layanan Service Yang Kami Berikan</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Layanan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Service Layar/ LCD HP</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Service/ Ganti Baterai HP</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Service Port USB HP</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Service Speaker HP</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Service Microphone HP</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Service Port audio HP</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Service Tombol HP</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Reset Pabrik</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </main>
+
+  <a href="daftarservice.html" style="text-decoration: none;">
+    <div style="display: flex; justify-content: center; margin-top: 180px; margin-bottom: 0;">
+      <button class="button">Daftar</button>
+    </div>
+  </a>
+
+  <script>
+    const konsultasiButton = document.getElementById('konsultasiButton');
+
+    konsultasiButton.addEventListener('mousedown', () => {
+      konsultasiButton.style.textShadow = '2px 2px 2px rgba(0, 0, 0, 0.5)';
+    });
+
+    konsultasiButton.addEventListener('mouseup', () => {
+      konsultasiButton.style.textShadow = 'none';
+    });
+
+    konsultasiButton.addEventListener('click', () => {
+      window.location.href = 'konsultasi.html';
+    });
+  </script>
+
+</body>
+</html>
